@@ -7,8 +7,8 @@
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <form [formGroup]="form">
-                        <p class="control">
-                            <input class="input is-large" type="email" placeholder="E-mail" formControlName="email" [ngClass]="{'is-danger': (!form.controls.email.valid && !form.controls.email.pristine)}">
+                        <p class="control" id="emailControl">
+                            <input class="input is-large" type="email" (blur)="checkEmail()" placeholder="E-mail" formControlName="email" [ngClass]="{'is-danger': (!form.controls.email.valid && !form.controls.email.pristine)}">
                             <span class="tag is-danger" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">E-mail inválido</span>
                         </p><br />
                         <p class="control">
@@ -18,8 +18,13 @@
                         <p>
                             <button (click)="submit()" class="button is-primary is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">
                                 Entrar
-                            </button><br/>
+                            </button>
+                            <br/>
                             <a class="button is-link is-fullwidth">NÃO SOU CADASTRADO</a>
+                        </p>
+                        <hr />
+                        <p>
+                            <button (click)="showModal()" class="button is-link is-fullwidth">TERMOS DE USO</button>
                         </p>
                     </form>
                 </div>
@@ -27,3 +32,19 @@
         </div>
     </div>
 </section>
+
+<div class="modal" id="modalControl">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">TERMOS DE USO</p>
+            <button (click)="hideModal()" class="delete"></button>
+        </header>
+        <section class="modal-card-body">
+            Aqui vão os termos de uso do site
+        </section>
+        <footer class="modal-card-foot">
+            <button (click)="hideModal()" class="button">OK</button>
+        </footer>
+    </div>
+</div>
