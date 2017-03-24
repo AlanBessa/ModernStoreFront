@@ -12,13 +12,9 @@ export class DataService {
 
     
     createUser(data: any) {   
-        /*     
         return this.http
-            .post(environment.serviceUrl + 'v1/customers', data)
-            .map((res: Response) => res.json());
-        */
-
-        return null;
+            .post(this.serviceUrl + 'v1/customers', data)
+            .map((res: Response) => res.json());        
     }
 
     getCourses() {
