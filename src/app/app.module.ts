@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+//Rotas
+import { Routing, RoutingProviders } from './app.routing';
+
 //Root
 import { AppComponent } from './app.component';
 
@@ -35,7 +38,8 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Routing
   ],
   providers: [],
   bootstrap: [AppComponent]
